@@ -18,7 +18,7 @@ Su respectivo grafico:
 
 <img width="628" height="710" alt="image" src="https://github.com/user-attachments/assets/ab8fd9dc-81e0-43bd-9986-2397e7081d67" />
 
-Por otro lado el codigo de la convulución de la primera estudiante:
+Por otro lado el codigo de la convolución de la primera estudiante:
 
 ```python
   import numpy as np
@@ -51,7 +51,7 @@ El grafico por medio de python:
 <img width="704" height="586" alt="image" src="https://github.com/user-attachments/assets/7c940833-09b6-4af7-853f-be48aaf088b6" />
 
 ### Convolución Segunda señal 
-Posteriormente la convulución manual de la segunda estudiante:
+Posteriormente la convolución manual de la segunda estudiante:
 
 <img width="521" height="831" alt="image" src="https://github.com/user-attachments/assets/2e51caea-1ef0-474b-b776-7ee4949fa0de" />
 
@@ -98,13 +98,13 @@ El grafico por medio de python:
 
 ### Convolución Tercera señal 
 
-Por ultimo la convulución manual de la tercera estudiante:
+Por ultimo la convolución manual de la tercera estudiante:
 
 <img width="500" height="277" alt="image" src="https://github.com/user-attachments/assets/1e37e646-98aa-4604-8c29-8215089ba31e" />
 
 <img width="521" height="554" alt="image" src="https://github.com/user-attachments/assets/48e5ac0c-90f8-41db-a790-97d71201a4f4" />
 
-El resultado de la ultima convulución:
+El resultado de la ultima convolución:
 
 <img width="606" height="286" alt="image" src="https://github.com/user-attachments/assets/bc824ac4-d29a-4d12-a7e0-baea87502844" />
 
@@ -112,7 +112,7 @@ Su respectivo grafico:
 
 <img width="628" height="710" alt="image" src="https://github.com/user-attachments/assets/495e95a4-bd49-4280-b52d-2211e937935d" />
 
-Por otro ultimo el codigo de la convulución de la tercera estudiante:
+Por otro ultimo el codigo de la convolución de la tercera estudiante:
 
 ```python
 import numpy as np
