@@ -148,6 +148,68 @@ El grafico por medio de python:
 <img width="704" height="586" alt="image" src="https://github.com/user-attachments/assets/b87b47f7-c0cc-4744-aa13-b184cb025cf0" />
 
 ## Parte B 
+En la parte B del laboratorio se definieron dos señales. A continuación se presentan:
+
+<img width="416" height="43" alt="image" src="https://github.com/user-attachments/assets/31ed6cc7-1b3b-4593-a9ec-053b9bfba405" />
+
+Dado que el período de muestreo es de 1.25 ms, se requería calcular la correlación cruzada entre ambas funciones. Para ello, se utilizo el siguiente código:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+Ts = 1.25e-3 
+f = 100       
+n = np.arange(0, 10)  
+x1 = np.cos(2 * np.pi * f * n * Ts)
+x2 = np.sin(2 * np.pi * f * n * Ts)
+
+corr = np.correlate(x1, x2, mode='full')
+lags = np.arange(-len(x1) + 1, len(x1))
+
+plt.figure(figsize=(12, 6))
+```
+
+Luego, se graficaron ambas señales con el siguiente código:
+
+```python
+plt.subplot(2, 1, 1)
+plt.stem(n, x1, linefmt='mediumorchid', markerfmt='o', basefmt='gray', label='x1[n] = cos(...)')
+plt.stem(n, x2, linefmt='turquoise', markerfmt='o', basefmt='gray', label='x2[n] = sin(...)')
+plt.title('Señales x1[n] y x2[n]')
+plt.xlabel('n')
+plt.ylabel('Amplitud')
+plt.legend()
+plt.grid(True)
+```
+El resultado se muestra en la siguiente gráfica:
+
+<img width="1544" height="382" alt="image" src="https://github.com/user-attachments/assets/c9fa8c23-5e02-4fd5-aaf0-34132723ca7c" />
+
+La correlación se muestra en la siguiente gráfica, obtenida con el siguiente código:
+
+```python
+plt.subplot(2, 1, 2)
+plt.stem(lags, corr, linefmt='lightcoral', markerfmt='o', basefmt='gray')
+plt.title('Correlación cruzada entre x1[n] y x2[n]')
+plt.xlabel('Desfase (lags)')
+plt.ylabel('Amplitud')
+plt.grid(True)
+
+plt.tight_layout()
+plt.show()
+```
+Esta es la gráfica obtenida:
+
+<img width="1544" height="382" alt="image" src="https://github.com/user-attachments/assets/d6307c17-0425-4956-8fa5-cee2d60092e5" />
+
+A continuación se responde la pregunta: ¿En qué casos es útil aplicar la correlación cruzada en el procesamiento digital de señales?
+
+
+
+
+
 
 
 ## Parte C 
