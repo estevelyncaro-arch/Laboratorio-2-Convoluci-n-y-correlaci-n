@@ -228,3 +228,72 @@ En este apartado se tiene el siguiente diagrama de flujo:
 ![Diagramas de flujo lab 2_page-0003](https://github.com/user-attachments/assets/5171ca10-df48-4843-82f4-62d57617e890)
 ![Diagramas de flujo lab 2_page-0004](https://github.com/user-attachments/assets/aa34b769-a817-4195-a43f-8b6fc4623e11)
 
+Para el desarrollo de la parte C del laboratorio de captura una señal EOG del generador de señales biológicas implementando el entorno spyder de el programa ANACONDA. Para la captura y almacenamiento de la señal se desarrolló el siguiente código:
+```python
+Import nidaqmx                     # Librería daq. Requiere haber instalado el driver nidaqmx
+from nidaqmx.constants import AcquisitionType # Para definir que adquiera datos de manera consecutiva
+import matplotlib.pyplot as plt    # Librería para graficar
+import numpy as np                 # Librería de funciones matemáticas
+
+#%% Adquisición de la señal por tiempo definido
+
+fs = 16           # Frecuencia de muestreo en Hz. Recordar cumplir el criterio de Nyquist
+duracion = 5       # Periodo por el cual desea medir en segundos
+senal = []          # Vector vacío en el que se guardará la señal
+dispositivo = 'Dev2/ai0' # Nombre del dispositivo/canal (se puede cambiar el nombre en NI max)
+
+total_muestras = int(fs * duracion)
+
+with nidaqmx.Task() as task:
+    # Configuración del canal
+    task.ai_channels.add_ai_voltage_chan(dispositivo)
+    # Configuración del reloj de muestreo
+    task.timing.cfg_samp_clk_timing(
+        fs,
+        sample_mode=AcquisitionType.FINITE,   # Adquisición finita
+        samps_per_chan=total_muestras        # Total de muestras que quiero
+    )
+
+    # Lectura de todas las muestras de una vez
+    senal = task.read(number_of_samples_per_channel=total_muestras)
+
+t = np.arange(len(senal))/fs # Crea el vector de tiempo
+plt.plot(t,senal)
+plt.axis([0,duracion,-2.5,2.5])
+plt.grid()
+plt.title(f"fs={fs}Hz, duración={duracion}s, muestras={len(senal)}")
+plt.show()
+#%%
+np.savetxt(f"labo fs{fs}.txt", [t,senal])
+```
+
+Con el anterior código se guarda la señal en un archivo .txt para posteriormente realizar la lectura de la señal y realizar el gráfico de esta, para esto empleamos el siguiente código:
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+data = np.loadtxt("/content/labo fs16 (1).txt")
+
+#Transponer filas a columnas
+data = data.T
+
+# 3) Separar columnas
+t = data[:,0]
+x = data[:,1]
+
+
+# 5) Graficar
+plt.figure(figsize=(8,5))
+plt.plot(t, x)
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Amplitud")
+plt.axis([0,5,-2.5,2.5])
+plt.title("blabla")
+plt.grid(True)
+plt.show()
+
+```
+Obteniendo la siguiente señal:
+
+
