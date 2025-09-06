@@ -4,6 +4,9 @@ En este laboratorio se abordarán los conceptos fundamentales de convolución y 
 
 ## Parte A 
 Para iniciar, se seleccionaron dos señales distintas, generadas a partir de los dígitos del código estudiantil y de la cédula de cada integrante del grupo. Una vez definidas, se procedió a aplicar la operación de convolución entre ellas, con el objetivo de analizar su comportamiento combinado. Este proceso se realizó tanto manualmente como digitalmente por medio de python.
+Se realizó el diagrama de flujo que se muestra a continuación:
+
+![Diagramas de flujo lab 2_page-0001](https://github.com/user-attachments/assets/5d4a701f-3407-4b2e-b77a-cda77da48e17)
 
 ### Convolución Primera señal 
 A continuacion la convulución manual de la primera estudiante:
@@ -148,6 +151,12 @@ El grafico por medio de python:
 <img width="704" height="586" alt="image" src="https://github.com/user-attachments/assets/b87b47f7-c0cc-4744-aa13-b184cb025cf0" />
 
 ## Parte B 
+
+Para esta sección se realizó el siguiente diagrama de flujo:
+
+![Diagramas de flujo lab 2_page-0002](https://github.com/user-attachments/assets/54bb142f-054b-47a5-a809-b676e1d4c451)
+
+
 En la parte B del laboratorio se definieron dos señales. A continuación se presentan:
 
 <img width="416" height="43" alt="image" src="https://github.com/user-attachments/assets/31ed6cc7-1b3b-4593-a9ec-053b9bfba405" />
@@ -213,3 +222,9 @@ A continuación se responde la pregunta: ¿En qué casos es útil aplicar la cor
 
 
 ## Parte C 
+
+En este apartado se tiene el siguiente diagrama de flujo:
+
+![Diagramas de flujo lab 2_page-0003](https://github.com/user-attachments/assets/5171ca10-df48-4843-82f4-62d57617e890)
+![Diagramas de flujo lab 2_page-0004](https://github.com/user-attachments/assets/aa34b769-a817-4195-a43f-8b6fc4623e11)
+
