@@ -222,6 +222,7 @@ A continuación se responde la pregunta: ¿En qué casos es útil aplicar la cor
 
 
 ## Parte C 
+Para concluir este laboratorio, se realizó la captura de señales utilizando un generador de señales biológicas. Estas señales fueron almacenadas mediante un sistema de adquisición de datos (DAQ), lo que permitió su visualización y análisis en el computador. Posteriormente, se determinó la frecuencia de Nyquist correspondiente, con base en la frecuencia máxima presente en la señal, asegurando así un muestreo adecuado, graficando así la señal para calcular su media, mediana, desviacion estandar, valor maximo y valor minimo. Finalmente, se aplicó la Transformada de Fourier para analizar el contenido espectral de la señal, permitiendo identificar sus componentes frecuenciales y analisar la frecuencia media, frecuencia mediana, deviación estandar y por ultimo el histograma de frecuencias.
 
 En este apartado se tiene el siguiente diagrama de flujo:
 
@@ -270,6 +271,7 @@ np.savetxt(f"labo fs{fs}.txt", [t,senal])
 ```
 
 Con el anterior código se guarda la señal en un archivo .txt para posteriormente realizar la lectura de la señal y realizar el gráfico de esta, para esto empleamos el siguiente código:
+
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
@@ -294,8 +296,61 @@ plt.axis([0,5,-2.5,2.5])
 plt.title("blabla")
 plt.grid(True)
 plt.show()
-
 ```
+
 Obteniendo la siguiente señal:
+
+<img width="1121" height="754" alt="image" src="https://github.com/user-attachments/assets/ba8341c5-6c2c-4f79-b404-e0f09d116b5a" />
+
+Ya con la señal caracterizada se obtuvo media, mediana, desviación estándar, máximo, mínimo con el siguiente codigo:
+
+```python
+media=np.mean(x)
+
+mediana=np.median(x)
+
+desviacion_poblacion=np.std(x)
+
+desviacion_muestra=np.std(x,ddof=1)
+
+valor_max = np.max(x)
+valor_min = np.min(x)
+
+print(f"media igual a {media}")
+print(f"mediana igual a {mediana}")
+print(f"la desviacion estandar de la poblacion es igual a {desviacion_poblacion}")
+print(f"la desviacion estandar de la muestra es igual a {desviacion_muestra}")
+print(f"Valor máximo: {valor_max}")
+print(f"Valor mínimo: {valor_min}")
+```
+Evidenciando así los resultados:
+
+media igual a 0.022499906037410256
+
+mediana igual a 0.08031513838795945
+
+la desviacion estandar de la poblacion es igual a 0.4124787645526403
+
+la desviacion estandar de la muestra es igual a 0.41508118005069317
+
+Valor máximo: 1.0840098225744441
+
+Valor mínimo: -0.804387308540754
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
