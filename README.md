@@ -300,7 +300,8 @@ plt.show()
 
 Obteniendo la siguiente señal:
 
-<img width="1121" height="754" alt="image" src="https://github.com/user-attachments/assets/ba8341c5-6c2c-4f79-b404-e0f09d116b5a" />
+<img width="721" height="654" alt="image" src="https://github.com/user-attachments/assets/ba8341c5-6c2c-4f79-b404-e0f09d116b5a" />
+
 
 Ya con la señal caracterizada se obtuvo media, mediana, desviación estándar, máximo, mínimo con el siguiente codigo:
 
@@ -323,6 +324,7 @@ print(f"la desviacion estandar de la muestra es igual a {desviacion_muestra}")
 print(f"Valor máximo: {valor_max}")
 print(f"Valor mínimo: {valor_min}")
 ```
+
 Evidenciando así los resultados:
 
 media igual a 0.022499906037410256
@@ -337,6 +339,7 @@ Valor máximo: 1.0840098225744441
 
 Valor mínimo: -0.804387308540754
 
+La señal analizada es determinística, ya que puede ser predecible y repetitiva. Es periódica, debido a que presenta un patrón que se repite de forma regular. Además, se considera digital, por que sus valores son continuos y no discretos.
 
 
 
