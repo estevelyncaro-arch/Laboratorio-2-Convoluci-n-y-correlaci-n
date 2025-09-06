@@ -215,11 +215,7 @@ Esta es la gráfica obtenida:
 
 A continuación se responde la pregunta: ¿En qué casos es útil aplicar la correlación cruzada en el procesamiento digital de señales?
 
-
-
-
-
-
+La correlación cruzada es una herramienta muy útil en el procesamiento digital de señales, especialmente cuando se busca medir la similitud entre dos señales en función de un desplazamiento temporal. En términos sencillos, permite determinar qué tan parecidas son dos señales y en qué instante se alinean, facilitando así tareas como la detección de patrones, la sincronización y el análisis de retardo entre señales.
 
 ## Parte C 
 Para concluir este laboratorio, se realizó la captura de señales utilizando un generador de señales biológicas. Estas señales fueron almacenadas mediante un sistema de adquisición de datos (DAQ), lo que permitió su visualización y análisis en el computador. Posteriormente, se determinó la frecuencia de Nyquist correspondiente, con base en la frecuencia máxima presente en la señal, asegurando así un muestreo adecuado, graficando así la señal para calcular su media, mediana, desviacion estandar, valor maximo y valor minimo. Finalmente, se aplicó la Transformada de Fourier para analizar el contenido espectral de la señal, permitiendo identificar sus componentes frecuenciales y analisar la frecuencia media, frecuencia mediana, deviación estandar y por ultimo el histograma de frecuencias.
@@ -341,19 +337,90 @@ Valor mínimo: -0.804387308540754
 
 La señal analizada es determinística, ya que puede ser predecible y repetitiva. Es periódica, debido a que presenta un patrón que se repite de forma regular. Además, se considera digital, por que sus valores son continuos y no discretos.
 
+A la señal se le aplico la transformada de fourier y se grafico la señal con el siguiente codigo:
 
+```python
+fs = 16
+P = (np.abs(X)**2) / N
 
+plt.figure(figsize=(8,5))
+plt.subplot(3,1,3)
+plt.plot(f, mag, color="purple", label="FFT (magnitud)")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Magnitud")
+plt.title("Transformada de Fourier")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+Obteniendo así la siguiente grafica:
 
+<img width="907" height="255" alt="image" src="https://github.com/user-attachments/assets/4543d945-ad23-4a7f-8a77-e878517be6dd" />
 
+Para luego graficar su densidad espectral con el siguiente codigo:
 
+```python
+fs = 16
+P = (np.abs(X)**2) / N
+plt.figure(figsize=(8,5))
+plt.plot(f[:N//2], P[:N//2], color="green")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Potencia")
+plt.title("Densidad Espectral de Potencia (PSD)")
+plt.grid(True)
+plt.show()
 
+plt.tight_layout()
+plt.show()
+```
 
+Para obtener la siguiente grafica:
 
+<img width="691" height="470" alt="image" src="https://github.com/user-attachments/assets/1f4365fa-e582-4c5b-812b-0e3ce8ced708" />
 
+Con el fin de analizar y evidenciar parámetros espectrales como la frecuencia media, frecuencia mediana y desviación estándar , que se puede evidenciar en el siguiente codigo:
 
+```python
+import numpy as np
+import matplotlib.pyplot as plt
 
+f_pos = f[:len(x)//2]
+P = np.abs(X[:len(x)//2])**2
 
+# --- Estadísticos ---
+f_mean = np.sum(f_pos * P) / np.sum(P)
+f_median = f_pos[np.searchsorted(np.cumsum(P), np.sum(P)/2)]
+f_std = np.sqrt(np.sum(((f_pos - f_mean)**2) * P) / np.sum(P))
 
+print("Frecuencia media:", f_mean)
+print("Frecuencia mediana:", f_median)
+print("Desviación estándar:", f_std)
+```
+
+Evidenciando así los estadisticos:
+
+Frecuencia media: 4.28536580830589
+
+Frecuencia mediana: 4.0
+
+Desviación estándar: 1.0573167239416825
+
+Y para finalizar, se elaboró el histograma de frecuencias con el siguiente codigo:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.hist(f_pos, bins=20, weights=P, color="skyblue", edgecolor="black")
+plt.xlabel("Frecuencia (Hz)")
+plt.ylabel("Potencia")
+plt.title("Histograma de frecuencias")
+plt.show()
+```
+Evidenciando así el grafico:
+
+<img width="571" height="455" alt="image" src="https://github.com/user-attachments/assets/bdf49d5e-908b-47dd-844f-e8b4c88153d7" />
 
 
 
