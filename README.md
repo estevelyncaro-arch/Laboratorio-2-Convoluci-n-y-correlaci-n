@@ -227,7 +227,8 @@ En este apartado se tiene el siguiente diagrama de flujo:
 
 ![Diagramas de flujo lab 2_page-0003](https://github.com/user-attachments/assets/5171ca10-df48-4843-82f4-62d57617e890)
 
-![Diagramas de flujo lab 2_page-0004](https://github.com/user-attachments/assets/aa34b769-a817-4195-a43f-8b6fc4623e11)
+<img width="1045" height="547" alt="image" src="https://github.com/user-attachments/assets/ee476f7d-e5ac-4e08-be5f-eb51f8a01c22" />
+
 
 Para el desarrollo de la parte C del laboratorio de captura una señal EOG del generador de señales biológicas implementando el entorno spyder de el programa ANACONDA. Para la captura y almacenamiento de la señal se desarrolló el siguiente código:
 ```python
